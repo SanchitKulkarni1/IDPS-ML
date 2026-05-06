@@ -67,6 +67,10 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground font-sans antialiased;
+    width: 800px;
+    height: 600px;
+    overflow: hidden;
+    margin: 0;
   }
 
   h1, h2, h3, h4, h5, h6 {

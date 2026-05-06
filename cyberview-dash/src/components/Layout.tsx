@@ -27,34 +27,34 @@ interface LayoutProps {
 
 const Layout = ({ children }: LayoutProps) => {
   return (
-    <div className="flex min-h-screen bg-secondary/30">
+    <div className="flex bg-secondary/30 w-[800px] h-[600px] overflow-hidden">
       {/* Sidebar */}
-      <aside className="w-64 bg-card border-r border-border">
-        <div className="p-6 border-b border-border">
-          <h1 className="text-2xl font-bold text-primary">NIDS/IPS Monitor</h1>
-          <p className="text-xs text-muted-foreground mt-1">Intrusion Detection & Prevention</p>
+      <aside className="w-48 bg-card border-r border-border flex flex-col">
+        <div className="p-4 border-b border-border">
+          <h1 className="text-xl font-bold text-primary">CyberView</h1>
+          <p className="text-[10px] text-muted-foreground mt-1">Monitor & Prevent</p>
         </div>
 
-        <nav className="p-4 space-y-2">
+        <nav className="p-3 space-y-1.5 overflow-y-auto flex-1">
           {navigation.map((item) => (
             <NavLink
               key={item.name}
               to={item.href}
               end={item.href === "/"}
               className={({ isActive }) =>
-                isActive ? "nav-link nav-link-active" : "nav-link nav-link-inactive"
+                isActive ? "nav-link nav-link-active !py-2" : "nav-link nav-link-inactive !py-2"
               }
             >
-              <item.icon className="h-5 w-5" />
-              <span>{item.name}</span>
+              <item.icon className="h-4 w-4 shrink-0" />
+              <span className="text-sm truncate">{item.name}</span>
             </NavLink>
           ))}
         </nav>
       </aside>
 
       {/* Main Content */}
-      <main className="flex-1 overflow-auto">
-        <div className="p-8">
+      <main className="flex-1 overflow-y-auto">
+        <div className="p-4 md:p-6">
           {children}
         </div>
       </main>
